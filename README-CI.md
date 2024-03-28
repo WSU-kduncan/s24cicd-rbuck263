@@ -25,6 +25,16 @@ This repository is part of a project that automates building, testing, and deplo
 4. Team members review and approve changes.
 5. Approved changes are deployed to the live website.
 
+# Continuous Integration Process Diagrams
+
+## Diagram 1: Connection between Developer and GitHub
+
+![Diagram 1](diagram1.png)
+
+## Diagram 2: Connections between GitHub Actions and DockerHub
+
+![Diagram 2](diagram2.png)
+
 ## Configuration
 - GitHub Actions used for automation.
 - Dockerfiles used to build Docker images.
