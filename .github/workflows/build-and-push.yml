@@ -1,0 +1,24 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Login to DockerHub
+      run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "rbuck263@gmail.com" --password-stdin
+
+    - name: Build Docker image
+      run: docker build -t rbuck263@gmail.com/project4-image:latest .
+
+    - name: Push Docker image to DockerHub
+      run: docker push rbuck263@gmail.com/project4-image:latest
+
