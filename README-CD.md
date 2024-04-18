@@ -3,6 +3,9 @@
 ## Overview
 This project automates deployment using Git, GitHub, and Docker Hub.
 
+## Continuous Deployment Process Diagram
+![Continuous Deployment Process Diagram](cd_process_diagram.png)
+
 ## How to Install Docker
 1. Connect to your EC2 instance.
 2. Follow Docker's instructions to install Docker on your Linux instance.
