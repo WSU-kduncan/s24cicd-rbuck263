@@ -1,0 +1,31 @@
+[
+  {
+    "id": "update-container",
+    "execute-command": "/home/ubuntu/scripts/update_container.sh",
+    "command-working-directory": "/home/ubuntu/scripts",
+    "response-message": "Container updated successfully.",
+    "include-command-output-in-response": true,
+    "pass-arguments-to-command":
+    [
+        {
+            "source": "payload",
+            "name": "tag",
+            "required": true
+        }
+    ],
+    "trigger-rule":
+    {
+        "match":
+        {
+            "type": "value",
+            "value": "v*",
+            "parameter":
+            {
+                "source": "payload",
+                "name": "ref"
+            }
+        }
+    }
+  }
+]
+
