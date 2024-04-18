@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+    tags:
+      - '*'
 
 jobs:
   build:
@@ -15,6 +17,15 @@ jobs:
 
     - name: Login to DockerHub
       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "rbuck263@gmail.com" --password-stdin
+
+    - name: Extract version from git tag
+      id: version
+      uses: docker/metadata-action@v3
+      with:
+        images: rbuck263@gmail.com/project4-image
+        tags: |
+          latest
+          ${{ steps.version.outputs.tags }}
 
     - name: Build Docker image
       run: docker build -t rbuck263@gmail.com/project4-image:latest .
